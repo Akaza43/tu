@@ -1,0 +1,51 @@
+export const Data = [
+  {
+    id: "1",
+    title: "1. Fundamental Analysis 101",
+    drive: "https://drive.google.com/file/d/1DOeNnqD355vquAryZgLh3klCLdO0Ay5c/view?usp=drive_link",
+    link: "/Halaman/page/1-financial-litracy/15/1",
+    category: "Financial Litracy",
+  },
+  {
+    id: "1",
+    title: "2. Menganalisis Bisnis Hebat",
+    drive: "https://drive.google.com/file/d/1xz-cojxOFxlErr2SMXOOUNFX8JG47D2M/view?usp=drive_link",
+    link: "/Halaman/page/1-financial-litracy/15/2",
+    category: "Financial Litracy",
+  },
+  {
+    id: "1",
+    title: "3. Time is The Friend of The Wonderful business",
+    drive: "https://drive.google.com/file/d/12gfuXVcWJKuIR_tyNmqmYJU8PuBA2L5S/view?usp=drive_link",
+    link: "/Halaman/page/1-financial-litracy/15/3",
+    category: "Financial Litracy",
+  },
+  {
+    id: "1",
+    title: "4. Mr. Market is Your Servant",
+    drive: "https://drive.google.com/file/d/1BRz-uJXzYnnshOGSBjGHwbrWGkHL14L3/view?usp=drive_link",
+    link: "/Halaman/page/1-financial-litracy/15/4",
+    category: "Financial Litracy",
+  },
+  {
+    id: "1",
+    title: "5. Sektor dan Siklus - Ternak Uang",
+    drive: "https://drive.google.com/file/d/1_KHAZAB93M0sCXFdbm8e4_yPPwHxUF68/view?usp=drive_link",
+    link: "/Halaman/page/1-financial-litracy/15/5",
+    category: "Financial Litracy",
+  },
+  {
+    id: "1",
+    title: "6. Diversifikasi VS Konsentrasi",
+    drive: "https://drive.google.com/file/d/1fCCU8BVAE90j2tof6TWN9kqDllUtM_Pj/view?usp=drive_link",
+    link: "/Halaman/page/1-financial-litracy/15/6",
+    category: "Financial Litracy",
+  },
+  {
+    id: "1",
+    title: "7. Saham Sebagai Instrumen Kekayaan",
+    drive: "https://drive.google.com/file/d/1bNrqXnSwZzg8zf2yA6D2xPaTiribbPFs/view?usp=drive_link",
+    link: "/Halaman/page/1-financial-litracy/15/7",
+    category: "Financial Litracy",
+  },
+];

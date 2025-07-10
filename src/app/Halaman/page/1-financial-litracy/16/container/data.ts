@@ -1,0 +1,51 @@
+export const Data = [
+  {
+    id: "1",
+    title: "1. Compound Interest, Keajaiban ke 8 Dunia",
+    drive: "https://drive.google.com/file/d/19Snm5L2k5pfpsVCWC0Vxayk6j3DxThpa/view?usp=drive_link",
+    link: "/Halaman/page/1-financial-litracy/16/1",
+    category: "Financial Litracy",
+  },
+  {
+    id: "1",
+    title: "2. Gaya Hidup Sederhana",
+    drive: "https://drive.google.com/file/d/1b0h857lI9J_bbH9XNYJCBJ2CSO03YMp_/view?usp=drive_link",
+    link: "/Halaman/page/1-financial-litracy/16/2",
+    category: "Financial Litracy",
+  },
+  {
+    id: "1",
+    title: "3. Jangan Pernah Kehilangan Uang",
+    drive: "https://drive.google.com/file/d/1PBw5P0EIBN0Qwmq25IXpDA_vwqb4MLtD/view?usp=drive_link",
+    link: "/Halaman/page/1-financial-litracy/16/3",
+    category: "Financial Litracy",
+  },
+  {
+    id: "1",
+    title: "4. Investasi Sebagai Bisnis",
+    drive: "https://drive.google.com/file/d/1b2SUHPwCtPNM8wVI6mITuJYa2GLIRIIo/view?usp=drive_link",
+    link: "/Halaman/page/1-financial-litracy/16/4",
+    category: "Financial Litracy",
+  },
+  {
+    id: "1",
+    title: "5. Strategi Kekayaan Jangka Panjang",
+    drive: "https://drive.google.com/file/d/1yPG2VVMvun3MhxA6DvtxaowPz792GDVQ/view?usp=drive_link",
+    link: "/Halaman/page/1-financial-litracy/16/5",
+    category: "Financial Litracy",
+  },
+  {
+    id: "1",
+    title: "6. Avoiding Stupidity",
+    drive: "https://drive.google.com/file/d/1twVlobFTj-RNrJpLQ-DNwte7HanQah8Y/view?usp=drive_link",
+    link: "/Halaman/page/1-financial-litracy/16/6",
+    category: "Financial Litracy",
+  },
+  {
+    id: "1",
+    title: "7. Berinvestasi Untuk Legacy",
+    drive: "https://drive.google.com/file/d/1CnVpCWbp8PvGoRrsJclPzEFE8WeTdioE/view?usp=drive_link",
+    link: "/Halaman/page/1-financial-litracy/16/7",
+    category: "Financial Litracy",
+  },
+];
