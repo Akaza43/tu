@@ -3,14 +3,9 @@ import React, { useEffect, useState } from 'react';
 import { useSession, signIn, signOut } from "next-auth/react";
 import Loading from '@/ui/loading';
 import { AccessButton } from '@/components/buttons/AccessButton';
-import BlockchainPage from './Halaman/3-the-wealth-blueprint/page';
 import InvestingPage from './Halaman/2-capital-market-mastery/page';
-import CoursePage from './Halaman/4-the-investors-mind/page';
-import LiveclassPage from './Halaman/5-course-curriculum/page';
 import TradingPage from './Halaman/1-financial-litracy/page';
 import AllClassesPage from './Halaman/0-all-classes/page';
-import PrincipPage from './Halaman/6-principles-of-investing/page';
-import AccountingPage from './Halaman/7-financial-accounting/page';
 import { FaPlay } from 'react-icons/fa';
 
 export default function HomePage() {

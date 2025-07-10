@@ -4,11 +4,6 @@ import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { tradingData } from '../1-financial-litracy/data';
 import { investingData } from '../2-capital-market-mastery/data';
-import { blockchainData } from '../3-the-wealth-blueprint/data';
-import { liveclassData } from '../4-the-investors-mind/data';
-import { courseData } from '../5-course-curriculum/data';
-import { principData } from '../6-principles-of-investing/data';
-import { accountingData } from '../7-financial-accounting/data';
 import { MdKeyboardArrowDown } from 'react-icons/md';
 
 export default function AllClassesPage() {
