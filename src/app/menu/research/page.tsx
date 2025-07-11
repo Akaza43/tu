@@ -33,13 +33,13 @@ const ReusableGrid = ({ data }: { data: GridItem[] }) => {
                />
 
               <div className="p-4">
-                <span className="text-xs font-semibold text-blue-400">
+                <span className="text-xs font-semibold text-green-400">
                   {item.category}
                 </span>
                 <h3 className="font-semibold mt-1 text-white">{item.title}</h3>
                 <button
                   onClick={() => window.open(item.link, "_blank")}
-                  className="mt-4 px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white rounded-lg transition-all duration-200 flex items-center gap-2 shadow-lg shadow-blue-500/20"
+                  className="mt-4 px-4 py-2 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-500 hover:to-green-600 text-white rounded-lg transition-all duration-200 flex items-center gap-2 shadow-lg shadow-blue-500/20"
                 >
                   <span>View Research</span>
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -116,17 +116,17 @@ export default function ResearchPage() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-black px-4">
         <div className="auth-box bg-zinc-950/90 p-8 rounded-2xl backdrop-blur-md max-w-md w-full border border-zinc-900">
-          <h2 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 mb-4">
+          <h2 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-green-800 mb-4">
             Login untuk Akses Penuh
           </h2>
           <p className="text-gray-400 mb-6 text-sm">
             Silahkan login untuk mengakses semua fitur premium kami:
             <ul className="mt-2 space-y-1">
               <li className="flex items-center gap-2">
-                <span className="text-purple-400">•</span> Modul pembelajaran crypto
+                <span className="text-green-400">•</span> Modul pembelajaran crypto
               </li>
               <li className="flex items-center gap-2">
-                <span className="text-blue-400">•</span> Research dan analisis pasar
+                <span className="text-green-400">•</span> Research dan analisis pasar
               </li>
               <li className="flex items-center gap-2">
                 <span className="text-green-400">•</span> Komunitas ekslusif
@@ -135,7 +135,7 @@ export default function ResearchPage() {
           </p>
           <button
             onClick={() => signIn("discord")}
-            className="w-full py-3 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold hover:opacity-90 transition-opacity"
+            className="w-full py-3 rounded-lg bg-gradient-to-r from-green-600 to-green-800 text-white font-semibold hover:opacity-90 transition-opacity"
           >
             <i className="fas fa-lock-open mr-2"></i> Masuk dengan Discord
           </button>
@@ -186,7 +186,7 @@ export default function ResearchPage() {
       <div className="relative z-10 container mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold text-white mb-8 text-center">
           RESEARCH
-          <div className="mt-2 w-16 h-1 mx-auto bg-purple-500 rounded" />
+          <div className="mt-2 w-16 h-1 mx-auto bg-green-500 rounded" />
         </h1>
         <ReusableGrid data={researchData} />
       </div>

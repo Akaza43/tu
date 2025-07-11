@@ -12,8 +12,8 @@ export default function AllClassesPage() {
 
   // Gabungkan semua data modul
   const allClasses = [
-    ...tradingData,
     ...investingData,
+    ...tradingData,
   ];
 
   function handleImageError(title: string): void {

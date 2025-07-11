@@ -67,17 +67,17 @@ export default function HomePage() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-black px-4">
         <div className="auth-box bg-zinc-950/90 p-8 rounded-2xl backdrop-blur-md max-w-md w-full border border-zinc-900">
-          <h2 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 mb-4">
+          <h2 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-green-600 mb-4">
             Login untuk Akses Penuh
           </h2>
           <p className="text-gray-400 mb-6 text-sm">
             Silahkan login untuk mengakses semua fitur premium kami:
             <ul className="mt-2 space-y-1">
               <li className="flex items-center gap-2">
-                <span className="text-purple-400">•</span> Modul pembelajaran crypto
+                <span className="text-green-400">•</span> Modul pembelajaran crypto
               </li>
               <li className="flex items-center gap-2">
-                <span className="text-blue-400">•</span> Research dan analisis pasar
+                <span className="text-green-400">•</span> Research dan analisis pasar
               </li>
               <li className="flex items-center gap-2">
                 <span className="text-green-400">•</span> Komunitas ekslusif
@@ -86,7 +86,7 @@ export default function HomePage() {
           </p>
           <button
             onClick={() => signIn("discord")}
-            className="w-full py-3 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold hover:opacity-90 transition-opacity"
+            className="w-full py-3 rounded-lg bg-gradient-to-r from-green-600 to-green-800 text-white font-semibold hover:opacity-90 transition-opacity"
           >
             <i className="fas fa-lock-open mr-2"></i> Masuk dengan Discord
           </button>
@@ -131,7 +131,7 @@ export default function HomePage() {
               <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
                 <div className="w-full order-1 mb-3 md:mb-0 md:order-1 md:w-1/2 flex flex-col justify-center">
                   <h1 className="hidden md:block text-xl md:text-5xl font-bold text-white leading-tight">
-                    The Investors's <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500">Mind</span>
+                    The Investors's <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-green-900">Mind</span>
                   </h1>
                   <div className="hidden md:flex gap-2 mt-3">
                     <a href={links.startLearning} className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-white to-white text-black text-base font-semibold rounded-lg hover:opacity-90 transition-all duration-300">
