@@ -1,9 +1,10 @@
 "use client";
+
 import { useSession } from "next-auth/react";
 import { Data } from "./data";
 import Loading from "@/ui/loading";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const getGoogleDriveEmbedUrl = (url: string) => {
   const matches = url.match(/\/d\/(.+?)(?:\/|$|\?)/);
@@ -11,21 +12,18 @@ const getGoogleDriveEmbedUrl = (url: string) => {
   return `https://drive.google.com/file/d/${fileId}/preview`;
 };
 
-type PageProps = {
-  searchParams: { id?: string; next?: string; thumbnail?: string };
-};
-
-export default function Container({ searchParams }: PageProps) {
-  const videoId = searchParams.id || Data[0].id;
-  const nextModuleLink = searchParams.next || "";
+export default function Container() {
   const { data: session, status } = useSession();
   const [hasAccess, setHasAccess] = useState<boolean | null>(null);
   const [loading, setLoading] = useState(true);
   const [hideOverlay, setHideOverlay] = useState(false);
   const router = useRouter();
+  const searchParams = useSearchParams();
 
+  const videoId = searchParams?.get("id") || Data[0].id;
+  const nextModuleLink = searchParams?.get("next") || "";
+  const thumbnail = searchParams?.get("thumbnail") || "";
   const videoData = Data.find((item) => item.id === videoId);
-  const thumbnail = searchParams.thumbnail;
 
   useEffect(() => {
     const checkAccess = async () => {
@@ -79,9 +77,7 @@ export default function Container({ searchParams }: PageProps) {
   };
 
   const handleClickLesson = (item: typeof Data[number]) => {
-    router.push(
-      `?id=${item.id}&next=${encodeURIComponent(item.link)}&thumbnail=`
-    );
+    router.push(`?id=${item.id}&next=${encodeURIComponent(item.link)}&thumbnail=`);
   };
 
   if (loading || status === "loading") return <Loading />;
@@ -90,9 +86,6 @@ export default function Container({ searchParams }: PageProps) {
   return (
     <div className="min-h-screen bg-black text-white font-sans">
       {/* Header */}
-      <div className="p-4 border-b border-gray-800">
-        <h1 className="text-xl font-semibold text-center">Crypto Trading</h1>
-      </div>
 
       <div className="flex flex-col lg:flex-row">
         {/* Left: Video Player */}
@@ -100,7 +93,9 @@ export default function Container({ searchParams }: PageProps) {
           <div className="p-6 lg:fixed lg:w-[55%] lg:max-w-[800px]">
             <div className="relative aspect-video bg-black rounded-xl overflow-hidden border border-gray-900">
               <div
-                className={`absolute top-0 right-0 w-16 h-16 bg-transparent z-10 transition-opacity duration-1000 ${hideOverlay ? "opacity-0" : "opacity-100"}`}
+                className={`absolute top-0 right-0 w-16 h-16 bg-transparent z-10 transition-opacity duration-1000 ${
+                  hideOverlay ? "opacity-0" : "opacity-100"
+                }`}
                 onClick={handleOverlayClick}
               />
               {thumbnail ? (
@@ -120,7 +115,9 @@ export default function Container({ searchParams }: PageProps) {
                 />
               ) : null}
             </div>
-            <h1 className="text-2xl font-bold mt-4 text-white">{videoData?.title}</h1>
+            <h1 className="text-2xl font-bold mt-4 text-white">
+              {videoData?.title}
+            </h1>
           </div>
         </div>
 
@@ -138,20 +135,11 @@ export default function Container({ searchParams }: PageProps) {
               }`}
               onClick={() => handleClickLesson(item)}
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
+              <img
+                src="/images/play.svg"
+                alt="Play"
                 className="h-5 w-5"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={2}
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M14.752 11.168l-6.518-3.89A1 1 0 007 8.118v7.764a1 1 0 001.234.97l6.518-1.945a1 1 0 000-1.94z"
-                />
-              </svg>
+              />
               <span>{item.title}</span>
             </div>
           ))}
