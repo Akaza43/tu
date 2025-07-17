@@ -1,31 +1,27 @@
 "use client";
 import { useSession } from "next-auth/react";
 import { Data } from "./data";
-
-import PlayList from "../page";
-import Loading from '@/ui/loading';
+import Loading from "@/ui/loading";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 const getGoogleDriveEmbedUrl = (url: string) => {
-  
   const matches = url.match(/\/d\/(.+?)(?:\/|$|\?)/);
-  const fileId = matches ? matches[1] : '';
-  
+  const fileId = matches ? matches[1] : "";
   return `https://drive.google.com/file/d/${fileId}/preview`;
 };
 
 type PageProps = {
   searchParams: { id?: string; next?: string; thumbnail?: string };
-}
+};
 
 export default function Container({ searchParams }: PageProps) {
-  const videoId = searchParams.id || "";
-  const nextModuleLink = searchParams.next || ""; 
+  const videoId = searchParams.id || Data[0].id;
+  const nextModuleLink = searchParams.next || "";
   const { data: session, status } = useSession();
   const [hasAccess, setHasAccess] = useState<boolean | null>(null);
   const [loading, setLoading] = useState(true);
-  const [hideOverlay, setHideOverlay] = useState(false); 
+  const [hideOverlay, setHideOverlay] = useState(false);
   const router = useRouter();
 
   const videoData = Data.find((item) => item.id === videoId);
@@ -40,14 +36,13 @@ export default function Container({ searchParams }: PageProps) {
               Authorization: `Bearer ${session.accessToken}`,
             },
           });
-          
+
           if (!response.ok && response.status === 429) {
             setTimeout(checkAccess, 5000);
             return;
           }
 
           if (response.ok) {
-            const data = await response.json();
             setHasAccess(true);
           } else {
             setHasAccess(false);
@@ -73,55 +68,93 @@ export default function Container({ searchParams }: PageProps) {
   useEffect(() => {
     const timer = setTimeout(() => {
       setHideOverlay(true);
-    }, 120000); 
-
+    }, 120000);
     return () => clearTimeout(timer);
   }, []);
 
   const handleOverlayClick = () => {
     if (nextModuleLink) {
-      console.log("Navigating to:", nextModuleLink); 
       router.push(nextModuleLink);
     }
   };
 
-  if (loading || status === "loading") {
-    return <Loading />;
-  }
+  const handleClickLesson = (item: typeof Data[number]) => {
+    router.push(
+      `?id=${item.id}&next=${encodeURIComponent(item.link)}&thumbnail=`
+    );
+  };
 
-  if (!session || !hasAccess) {
-    return null;
-  }
+  if (loading || status === "loading") return <Loading />;
+  if (!session || !hasAccess) return null;
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-black text-white font-sans">
+      {/* Header */}
+      <div className="p-4 border-b border-gray-800">
+        <h1 className="text-xl font-semibold text-center">Financial Litracy</h1>
+      </div>
+
       <div className="flex flex-col lg:flex-row">
-        <div className="lg:w-[60%] lg:h-screen lg:overflow-hidden">
+        {/* Left: Video Player */}
+        <div className="lg:w-[60%]">
           <div className="p-6 lg:fixed lg:w-[55%] lg:max-w-[800px]">
             <div className="relative aspect-video bg-black rounded-xl overflow-hidden border border-gray-900">
-              {/* Overlay for "Pop Out" button area */}
               <div
                 className={`absolute top-0 right-0 w-16 h-16 bg-transparent z-10 transition-opacity duration-1000 ${hideOverlay ? "opacity-0" : "opacity-100"}`}
                 onClick={handleOverlayClick}
               />
               {thumbnail ? (
-                <img src={thumbnail} alt="Thumbnail" className="w-full h-full object-cover" />
-              ) : videoData?.drive && (
+                <img
+                  src={thumbnail}
+                  alt="Thumbnail"
+                  className="w-full h-full object-cover"
+                />
+              ) : videoData?.drive ? (
                 <iframe
                   src={getGoogleDriveEmbedUrl(videoData.drive)}
                   width="100%"
                   height="100%"
                   frameBorder="0"
                   allowFullScreen
-                  style={{ width: '100%', height: '100%', border: 'none' }}
+                  style={{ border: "none" }}
                 />
-              )}
+              ) : null}
             </div>
-            <h1 className="text-xl font-bold mt-3 text-gray-200">{videoData?.title}</h1>
+            <h1 className="text-2xl font-bold mt-4 text-white">{videoData?.title}</h1>
           </div>
         </div>
-        <div className="lg:w-[40%] bg-black border-l border-gray-900">
-          <PlayList />
+
+        {/* Right: Lessons */}
+        <div className="lg:w-[40%] bg-black border-l border-gray-900 min-h-screen p-6">
+          <h2 className="text-md font-semibold mb-4">
+            Lesson ({Data.length})
+          </h2>
+
+          {Data.map((item) => (
+            <div
+              key={item.id}
+              className={`bg-lime-500 text-black font-medium p-4 rounded-xl mb-3 hover:bg-lime-500 transition cursor-pointer flex items-center gap-3 ${
+                videoId === item.id ? "ring-2 ring-lime-500" : ""
+              }`}
+              onClick={() => handleClickLesson(item)}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2}
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M14.752 11.168l-6.518-3.89A1 1 0 007 8.118v7.764a1 1 0 001.234.97l6.518-1.945a1 1 0 000-1.94z"
+                />
+              </svg>
+              <span>{item.title}</span>
+            </div>
+          ))}
         </div>
       </div>
     </div>
