@@ -10,7 +10,7 @@ export default function Loading() {
         </div>
         <div className="flex items-center justify-center h-20 w-20 animate-pulse">
           <Image 
-            src="/ac.png" 
+            src="/ac.webp" 
             alt="Loading" 
             width={48} 
             height={48}

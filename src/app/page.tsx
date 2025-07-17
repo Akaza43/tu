@@ -15,8 +15,8 @@ export default function HomePage() {
   const [isTrialUser, setIsTrialUser] = useState(false);
 
   const links = {
-    startLearning: "/Halaman/page/1-financial-litracy/17/1",
-    moreInfo: "/Halaman/page/1-financial-litracy/17/1"
+    startLearning: "/Halaman/page/1-financial-litracy/17",
+    moreInfo: "/Halaman/page/1-financial-litracy/17"
   };
 
   useEffect(() => {
