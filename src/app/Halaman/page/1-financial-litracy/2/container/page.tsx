@@ -4,7 +4,16 @@ import { useSession } from "next-auth/react";
 import { Data } from "./data";
 import Loading from "@/ui/loading";
 import { useEffect, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
+
+// ✅ Tambahkan props type
+type ContainerProps = {
+  searchParams: {
+    id: string;
+    next?: string;
+    thumbnail?: string;
+  };
+};
 
 const getGoogleDriveEmbedUrl = (url: string) => {
   const matches = url.match(/\/d\/(.+?)(?:\/|$|\?)/);
@@ -12,17 +21,18 @@ const getGoogleDriveEmbedUrl = (url: string) => {
   return `https://drive.google.com/file/d/${fileId}/preview`;
 };
 
-export default function Container() {
+// ✅ Tambahkan parameter props
+export default function Container({ searchParams }: ContainerProps) {
   const { data: session, status } = useSession();
   const [hasAccess, setHasAccess] = useState<boolean | null>(null);
   const [loading, setLoading] = useState(true);
   const [hideOverlay, setHideOverlay] = useState(false);
   const router = useRouter();
-  const searchParams = useSearchParams();
 
-  const videoId = searchParams?.get("id") || Data[0].id;
-  const nextModuleLink = searchParams?.get("next") || "";
-  const thumbnail = searchParams?.get("thumbnail") || "";
+  // ✅ Ambil nilai dari props
+  const videoId = searchParams?.id || Data[0].id;
+  const nextModuleLink = searchParams?.next || "";
+  const thumbnail = searchParams?.thumbnail || "";
   const videoData = Data.find((item) => item.id === videoId);
 
   useEffect(() => {
@@ -85,10 +95,7 @@ export default function Container() {
 
   return (
     <div className="min-h-screen bg-black text-white font-sans">
-      {/* Header */}
-
       <div className="flex flex-col lg:flex-row">
-        {/* Left: Video Player */}
         <div className="lg:w-[60%]">
           <div className="p-6 lg:fixed lg:w-[55%] lg:max-w-[800px]">
             <div className="relative aspect-video bg-black rounded-xl overflow-hidden border border-gray-900">
@@ -121,7 +128,6 @@ export default function Container() {
           </div>
         </div>
 
-        {/* Right: Lessons */}
         <div className="lg:w-[40%] bg-black border-l border-gray-900 min-h-screen p-6">
           <h2 className="text-md font-semibold mb-4">
             Lesson ({Data.length})
