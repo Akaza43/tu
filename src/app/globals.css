@@ -46,23 +46,34 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(0, 255, 13, 0.685); /* red-600 with opacity */
+  background: rgb(2, 141, 255); /* red-600 with opacity */
   border-radius: 5px;
   border: 2px solid #111827;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 255, 13, 0.685);
+  background: rgb(0, 132, 255);
 }
 
 /* For Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: rgba(0, 255, 13, 0.685) #111827;
+  scrollbar-color: rgb(0, 132, 255) #111827;
 }
 
 .prevent-scroll {
   overflow: hidden;
+}
+
+/* Tambahkan ini di bawah, setelah semua yang sudah kamu punya */
+
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;             /* Chrome, Safari, Opera */
 }
 
 @media (max-width: 768px) {
