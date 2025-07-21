@@ -119,4 +119,16 @@ export const investingData = [
     link: "/Halaman/page/1-financial-litracy/1",
     category: "Financial Litracy",
   },
+  {
+    title: "21",
+    image: "/images/macroeconimi.webp",
+    link: "/Halaman/page/1-financial-litracy/21",
+    category: "Financial Litracy",
+  },
+  {
+    title: "22",
+    image: "/images/assetsclas.webp",
+    link: "/Halaman/page/1-financial-litracy/22",
+    category: "Financial Litracy",
+  },
 ];

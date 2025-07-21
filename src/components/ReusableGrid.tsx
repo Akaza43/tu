@@ -62,8 +62,8 @@ export const ReusableGrid: React.FC<{ data: GridItem[] }> = ({ data }) => {
 
       {selectedItem && (
         <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
-          <div className="relative bg-gradient-to-br from-gray-800 via-gray-900 to-black p-6 rounded-3xl max-w-md w-full mx-4 shadow-2xl transform transition-all duration-300 scale-100 border border-purple-500" style={{ animation: "fadeIn 0.3s ease-in-out" }}>
-            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-purple-500 rounded"></div>
+          <div className="relative bg-gradient-to-br from-gray-800 via-gray-900 to-black p-6 rounded-3xl max-w-md w-full mx-4 shadow-2xl transform transition-all duration-300 scale-100 border border-green-500" style={{ animation: "fadeIn 0.3s ease-in-out" }}>
+            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-green-500 rounded"></div>
             <h3 className="text-2xl font-bold text-white mb-4 text-center">{selectedItem.title}</h3>
             <p className="text-sm text-gray-400 mb-4 text-center">{selectedItem.description}</p>
             {selectedItem.price && (

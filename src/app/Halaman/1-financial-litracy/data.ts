@@ -1,5 +1,17 @@
 export const tradingData = [
   {
+    title: "Modul 22",
+    image: "/images/assetsclas.webp", 
+    link: "/Halaman/page/1-financial-litracy/22",
+    category: "Financial Litracy",
+  },
+  {
+    title: "Modul 21",
+    image: "/images/macroeconimi.webp", 
+    link: "/Halaman/page/1-financial-litracy/21",
+    category: "Financial Litracy",
+  },
+  {
     title: "Modul 1",
     image: "/images/Personal-Finance.jpg", 
     link: "/Halaman/page/1-financial-litracy/1",

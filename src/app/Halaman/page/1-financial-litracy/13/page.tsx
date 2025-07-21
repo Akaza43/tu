@@ -1,16 +1,17 @@
 "use client";
 
 import { useSession } from "next-auth/react";
-import { Data } from "../13/data";
+import { Data } from "../12/data";
 import Loading from "@/ui/loading";
 import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
 const getGoogleDriveEmbedUrl = (url: string) => {
-  const matches = url.match(/\/d\/(.+?)(?:\/|$|\?)/);
-  const fileId = matches ? matches[1] : "";
-  return `https://drive.google.com/file/d/${fileId}/preview`;
+  const matches = url.match(/(?:v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+  const videoId = matches ? matches[1] : "";
+  return `https://www.youtube.com/embed/${videoId}`;
 };
+
 
 export default function Container() {
   const { data: session, status } = useSession();
@@ -111,7 +112,9 @@ export default function Container() {
                   src={getGoogleDriveEmbedUrl(videoData.drive)}
                   width="100%"
                   height="100%"
-                  frameBorder="0"
+                  title="YouTube video player"
+                  allow="autoplay"
+                  frameBorder="1"
                   allowFullScreen
                   style={{ border: "none" }}
                 />

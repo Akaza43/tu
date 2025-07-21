@@ -2,7 +2,7 @@ export const Data = [
   {
     id: "1",
     title: "Membuat Tujuan Keuangan",
-    drive: "https://drive.google.com/file/d/1YPYPJwS7L6aOkWo0pWD0sInRvBQUJenn/view?usp=drive_link",
+    drive: "https://youtu.be/57WtY55Zdvo?si=S6KQ1-E4moVMQyd5",
     link: "/Halaman/page/1-financial-litracy/3/1",
     category: "Financial Litracy",
   },
