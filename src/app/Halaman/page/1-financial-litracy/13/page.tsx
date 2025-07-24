@@ -1,7 +1,7 @@
 "use client";
 
 import { useSession } from "next-auth/react";
-import { Data } from "../12/data";
+import { Data } from "../13/data";
 import Loading from "@/ui/loading";
 import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
